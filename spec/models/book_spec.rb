@@ -1,15 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Book, type: :model do
-  describe 'Validates' do
+  describe 'Validation' do
     it 'is valid with valid attributes' do 
-      expect(Book.create).to be_valid
+      expect(create(:book)).to be_valid
     end
-    it 'can not be nil ( title, price, quantity )' do
-      book = Book.create(title: '', price: '', quantity: '')
-      expect(book).not_to be_valid
+    describe 'can not be nil ( title, price, quantity )' do
+      [:title, :price, :quantity].each do |attr|
+        it { is_expected.to validate_presence_of(attr) }
+      end
     end
-    it 'is not valid without a quantity'
   end
 
+  describe 'Quantity' do
+    it { is_expected.to validate_numericality_of(:price) }
+  end
 end

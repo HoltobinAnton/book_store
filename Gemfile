@@ -46,6 +46,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'poltergeist'
   gem 'database_cleaner'
+  gem 'shoulda-matchers'
 
   gem 'byebug', platform: :mri
 end
