@@ -14,5 +14,17 @@ RSpec.describe Book, type: :model do
 
   describe 'Quantity' do
     it { is_expected.to validate_numericality_of(:price) }
+
+    it 'Check count?' do 
+      book = create(:book, quantity: 10)
+      flag = book.check_count?(20)
+      expect(flag).to be false
+    end
+
+    it 'Purchase of books' do
+      book = create(:book, quantity: 30)
+      book.purchase_of_book(25)
+      expect(book.quantity).to equal(5)
+    end
   end
 end
