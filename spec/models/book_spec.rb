@@ -12,6 +12,10 @@ RSpec.describe Book, type: :model do
     end
   end
 
+  describe 'Associations' do
+    it { is_expected.to have_and_belongs_to_many(:authors) }
+  end
+
   describe 'Quantity' do
     it { is_expected.to validate_numericality_of(:price) }
 
