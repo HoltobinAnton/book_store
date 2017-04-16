@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :dimension do
-    H 1
-    W 1
-    D 1
-   
+    H 11
+    W 12
+    D 13
   end
 end

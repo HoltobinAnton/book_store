@@ -38,6 +38,7 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
 gem 'rails_admin'
+gem 'figaro'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
