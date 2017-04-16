@@ -4,6 +4,7 @@ class Book < ApplicationRecord
 
   has_and_belongs_to_many :authors
   has_and_belongs_to_many :categories
+  has_many :materials
 
   def check_count?(count)
     self.quantity >= count ? true : false
