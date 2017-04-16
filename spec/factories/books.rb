@@ -6,5 +6,7 @@ FactoryGirl.define do
     photos "MyPathPhotos"
     descriprion "MyText"
     year_publication 1
+    dimension
   end
 end
+  
