@@ -33,5 +33,10 @@ RSpec.describe Book, type: :model do
       book.purchase_of_book(25)
       expect(book.quantity).to equal(5)
     end
+
+    it 'Should calculate the total price' do
+      book = create(:book, price: 13.42)
+      expect(book.total_price(10)).to eq(134.2)
+    end
   end
 end

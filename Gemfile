@@ -48,6 +48,7 @@ group :development, :test do
   gem 'poltergeist'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
+  gem 'carrierwave', '~> 1.0'
 
   gem 'byebug', platform: :mri
 end

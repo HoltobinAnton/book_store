@@ -15,5 +15,7 @@ class Book < ApplicationRecord
       self.update(quantity: self.quantity - count) if check_count?(count) 
   end
 
-
+  def total_price(count)
+    self.price * count if check_count?(count)
+  end
 end
