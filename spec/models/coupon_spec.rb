@@ -17,4 +17,15 @@ RSpec.describe Coupon, type: :model do
       expect(coupon.check_secret_code?('test_secret_code')).to be false
     end
   end
+
+  describe 'Get a discount' do
+    it 'should give me a 15 percent dicount' do
+      coupon = create(:coupon)
+      expect(coupon.get_discount('Q12345')).to eq(15)
+    end
+    it 'should give me a 50 percent discount' do
+      coupon = create(:coupon, discount: 50)
+      expect(coupon.get_discount('Q12345')).to eq(50)
+    end
+  end
 end
