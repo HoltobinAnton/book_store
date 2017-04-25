@@ -4,7 +4,7 @@ FactoryGirl.define do
     price 11.5
     quantity 15
     photos "MyPathPhotos"
-    descriprion "MyText"
+    description "MyText"
     year_publication 1
     dimension
   end

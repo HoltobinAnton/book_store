@@ -1,14 +1,9 @@
 require 'rails_helper'
 
-describe 'the book interface' do
-  before(:all) do
+feature 'the book interface' do
+  background do
     @book = create(:book)
-  end
-
-  describe 'on the book page' do
-    before(:each) do
-      visit books_path
-    end
+    visit book_path(@book.id)
   end
 
   it 'should display the attributes of the book' do
