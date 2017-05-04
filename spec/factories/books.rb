@@ -9,7 +9,7 @@ FactoryGirl.define do
     dimension
 
     after(:after) do |book|
-      book.authors << FactoryGirl.create(:author)
+      book.authors << FactoryGirl.create(:author)        
     end
   end
 end
