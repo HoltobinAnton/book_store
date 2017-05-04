@@ -12,7 +12,7 @@
           %img.width-full{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
   .col-sm-6
     %h1.mt-res-0= @book.title
-    %p.in-grey-600.small Vitaly Friedman, Daniel Mall,Vitaly Friedman
+    %p.in-grey-600.small= @book.authors_list
     .row
       .col-xs-12.col-md-4
         %p.h1.in-gold-500.mt-10=@book.price
