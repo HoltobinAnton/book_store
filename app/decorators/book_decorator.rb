@@ -10,4 +10,12 @@ class BookDecorator < Draper::Decorator
   #     end
   #   end
 
+  def authors_list
+  end
+
+  def materials_list
+  end
+
+  def dimension_attr
+  end
 end

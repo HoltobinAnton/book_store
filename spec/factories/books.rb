@@ -7,6 +7,10 @@ FactoryGirl.define do
     description "MyText"
     year_publication 1
     dimension
+
+    after(:after) do |book|
+      book.authors << FactoryGirl.create(:author)
+    end
   end
 end
-  
+ 

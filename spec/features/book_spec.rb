@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'the book interface' do
   background do
-    @book = create(:book)
+    @book = create(:book).decorate
     visit book_path(@book.id)
   end
 
