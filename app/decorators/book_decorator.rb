@@ -17,6 +17,9 @@ class BookDecorator < Draper::Decorator
   end
 
   def materials_list
+    materials.map do |material|
+      "#{material.title}"
+    end.join(', ')
   end
 
   def dimension_attr

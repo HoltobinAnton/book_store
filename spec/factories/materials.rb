@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :material do
-    title "MyTitle"
+    title "MaterialTitle"
   end
 end
