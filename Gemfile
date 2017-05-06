@@ -39,7 +39,7 @@ gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
 gem 'rails_admin'
 gem 'figaro'
-gem 'draper', '~> 2.1'
+gem 'draper', github: 'audionerd/draper', branch: 'rails5' 
 gem 'activemodel-serializers-xml'
 
 group :development, :test do
