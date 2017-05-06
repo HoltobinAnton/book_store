@@ -15,7 +15,7 @@
     %p.in-grey-600.small= @book.authors_list
     .row
       .col-xs-12.col-md-4
-        %p.h1.in-gold-500.mt-10=@book.price
+        %p.h1.in-gold-500.mt-10= @book.price
       .col-xs-5.col-md-3
         .input-group.general-position
           %a.input-link{href: "#"}
@@ -28,17 +28,17 @@
     .card
       %p Description
       %p.in-grey-600.small.line-height-2
-        =@book.description
+        = @book.description
         %a.in-gold-500.ml-10{href: "#"} Read More
     .card
       .clearfix
-        %p.general-item-info.pull-right=@book.year_publication
+        %p.general-item-info.pull-right= @book.year_publication
         %p.break-word Year of publication
     .card
       .clearfix
-        %p.general-item-info.pull-right=@book.dimension_attr
+        %p.general-item-info.pull-right= @book.dimension_attr
         %p.break-word Dimensions
     .card
       .clearfix
-        %p.general-item-info.pull-right=@book.materials_list
+        %p.general-item-info.pull-right= @book.materials_list
         %p.break-word Materials  

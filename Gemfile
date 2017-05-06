@@ -41,6 +41,7 @@ gem 'rails_admin'
 gem 'figaro'
 gem 'draper', github: 'audionerd/draper', branch: 'rails5' 
 gem 'activemodel-serializers-xml'
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
