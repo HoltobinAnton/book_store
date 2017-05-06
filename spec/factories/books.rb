@@ -5,11 +5,16 @@ FactoryGirl.define do
     quantity 15
     photos "MyPathPhotos"
     description "MyText"
-    year_publication 1
+    year_publication 1465
     dimension
-
-    after(:after) do |book|
-      book.authors << FactoryGirl.create(:author)        
+    #materials
+    #authors
+    after(:create) do |book|
+      book.authors << create(:author)        
+      book.authors << create(:author, first_name: 'Fname2', last_name: 'Lname2') 
+      book.dimension = create(:dimension)
+      book.materials << create(:material)
+      book.materials << create(:material, title: 'Carton')
     end
   end
 end
