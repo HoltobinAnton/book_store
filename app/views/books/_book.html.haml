@@ -27,9 +27,7 @@
         %button.btn.btn-default.pull-right.general-position Add to Cart 
     .card
       %p Description
-      %p.in-grey-600.small.line-height-2
-        = @book.description
-        %a.in-gold-500.ml-10{href: "#"} Read More
+      %p.in-grey-600.small.line-height-2= @book.description
     .card
       .clearfix
         %p.general-item-info.pull-right= @book.year_publication

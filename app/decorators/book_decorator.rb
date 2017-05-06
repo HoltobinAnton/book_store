@@ -25,4 +25,5 @@ class BookDecorator < Draper::Decorator
   def dimension_attr
    "H: #{dimension.H}" + "x W: #{dimension.W}" + "x D: #{dimension.D}"
   end
+
 end

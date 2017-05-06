@@ -4,11 +4,9 @@ FactoryGirl.define do
     price 11.5
     quantity 15
     photos "MyPathPhotos"
-    description "MyText"
+    description Faker::Lorem.sentence(20)
     year_publication 1465
     dimension
-    #materials
-    #authors
     after(:create) do |book|
       book.authors << create(:author)        
       book.authors << create(:author, first_name: 'Fname2', last_name: 'Lname2') 
