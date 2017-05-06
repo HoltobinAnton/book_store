@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :material do
-    title "MyString"
-    belongs_to ""
+    title "MyTitle"
   end
 end
