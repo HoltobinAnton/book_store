@@ -27,7 +27,8 @@
         %button.btn.btn-default.pull-right.general-position Add to Cart 
     .card
       %p Description
-      %p.in-grey-600.small.line-height-2= @book.description
+      %p.in-grey-600.small.line-height-2
+        %span.more= @book.description
     .card
       .clearfix
         %p.general-item-info.pull-right= @book.year_publication
