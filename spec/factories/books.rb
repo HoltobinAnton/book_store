@@ -4,7 +4,7 @@ FactoryGirl.define do
     price 11.5
     quantity 15
     photos "MyPathPhotos"
-    description Faker::Lorem.sentence(20)
+    description Faker::Lorem.sentence(50)
     year_publication 1465
     dimension
     after(:create) do |book|

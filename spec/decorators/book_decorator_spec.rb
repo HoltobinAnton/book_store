@@ -6,10 +6,10 @@ describe BookDecorator do
   end
 
   it 'should return authors_list' do
-    expect(book.authors_list).to eq('Fname Lname, Fname2 Lname2')
+    expect(book.authors_list).to eq('Fname2 Lname2, Fname Lname')
   end
 
   it 'should return materails list' do
-    expect(book.materials_list).to eq('Design, Carton')
+    expect(book.materials_list).to eq('Carton, Design')
   end
 end
