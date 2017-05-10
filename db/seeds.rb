@@ -9,16 +9,16 @@ category_array = ['Mobile development',
   'Web development']
 
   category_array.count.times do |item|
-   category = Category.new
-   category.title = category_array[item]
-   category.save!
- end
+    category = Category.new
+    category.title = category_array[item]
+    category.save!
+  end
  
  rand(3..15).times do
-  author = Author.new
-  author.first_name = Faker::Name.first_name
-  author.last_name = Faker::Name.last_name
-  author.save!
+   author = Author.new
+   author.first_name = Faker::Name.first_name
+   author.last_name = Faker::Name.last_name
+   author.save!
 end
 
 
