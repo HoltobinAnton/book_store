@@ -22,6 +22,10 @@ class BookDecorator < Draper::Decorator
     end.join(', ')
   end
 
+  def price_from_euro
+    "€#{price.round(2)}"
+  end
+
   def dimension_attr
    "H: #{dimension.H}" + "x W: #{dimension.W}" + "x D: #{dimension.D}"
   end

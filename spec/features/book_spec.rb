@@ -15,7 +15,11 @@ feature 'the book interface' do
       expect(page).to have_content(@book.dimension_attr)
       expect(page).to have_content(@book.year_publication)
     end
-  
+    
+    it 'should be the price from €' do
+      expect(page).to have_content("€#{@book.price}")
+    end
+
     it 'should be a short description and ... read more at startup', js: true do
       expect(page).to have_content("#{@book.description.slice(0...280)}... Read More")
     end
