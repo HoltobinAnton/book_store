@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :book do
     title "MyString"
-    price 11.5
+    price Faker::Number.decimal(2, 2)
     quantity 15
     photos "MyPathPhotos"
     description Faker::Lorem.sentence(50)

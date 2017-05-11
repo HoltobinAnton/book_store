@@ -34,7 +34,7 @@ end
 rand(10..80).times do
   book = Book.new
   book.title = Faker::Company.name
-  book.price = rand(5..1000)
+  book.price = Faker::Number.decimal(2, 2)
   book.quantity = rand(40..350)
   rand(2..3).times do
     book.authors  << Author.find(rand( Author.first.id .. Author.last.id ))
