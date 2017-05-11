@@ -14,6 +14,6 @@ describe BookDecorator do
   end
 
   it 'should return materails list' do
-    expect(book.materials_list).to eq('Design, Carton')
+    expect(book.materials_list).to eq('Carton, Design')
   end
 end
