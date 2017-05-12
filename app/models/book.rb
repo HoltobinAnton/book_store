@@ -8,7 +8,7 @@ class Book < ApplicationRecord
   has_many :pictures, as: :imageable
   belongs_to :dimension
 
-  mount_uploaders :photos, AvatarUploader
+  mount_uploader :photos, AvatarUploader
 
   def check_count?(count)
     self.quantity >= count ? true : false
