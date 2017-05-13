@@ -1,5 +1,7 @@
 class BookDecorator < Draper::Decorator
   delegate_all
+   include ActionView::Helpers::NumberHelper
+  include ActionView::Helpers::TextHelper
 
   # Define presentation-specific methods here. Helpers are accessed through
   # `helpers` (aka `h`). You can override attributes, for example:
@@ -14,6 +16,10 @@ class BookDecorator < Draper::Decorator
     authors.map do |author|
       "#{author.first_name} "+ "#{author.last_name}"
     end.join(', ')
+  end
+
+  def main_image
+    photos_url
   end
 
   def materials_list
