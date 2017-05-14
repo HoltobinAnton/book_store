@@ -4,12 +4,8 @@
       .mb-20
         = image_tag @book.main_image, class: 'img-responsive'
       .images.clearfix
-        %a.img-link{href: "#"}
-          %img.width-full{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
-        %a.img-link{href: "#"}
-          %img.width-full{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
-        %a.img-link{href: "#"}
-          %img.width-full{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
+        - @book.pictures.each do |picture|
+          = image_tag picture.images_url, class: 'img-link'
   .col-sm-6
     %h1.mt-res-0= @book.title
     %p.in-grey-600.small= @book.authors_list
