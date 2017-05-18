@@ -12,10 +12,13 @@ RSpec.describe Review, type: :model do
     end
   end
 
-  context 'the title should be validated on  regulars' do
+  context 'the title should be validated' do
     it 'should be validated on  a-z, A-Z, 0-9,' do
-      should allow_value('Test145').for(:title)
+      should allow_value('Test12345').for(:title)
+      should allow_value('name').for(:title)
     end
+
+    it { should validate_length_of(:title).is_at_most(80) }
   end
 
   context 'the tite should not be validated on regulars' do
