@@ -6,6 +6,7 @@ class Book < ApplicationRecord
   has_and_belongs_to_many :categories
   has_and_belongs_to_many :materials
   has_many :pictures, as: :imageable
+  has_many :reviews
   belongs_to :dimension
 
   mount_uploader :photos, AvatarUploader

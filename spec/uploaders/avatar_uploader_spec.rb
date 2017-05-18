@@ -17,16 +17,16 @@ include CarrierWave::Test::Matchers
   end
 
   context 'versions' do
-    it "scales down a landscape image to be exactly 247 by 380 pixels" do
-      expect(uploader.medium).to have_dimensions(247, 380)
+    #it "scales down a landscape image to be exactly 247 by 380 pixels" do
+    #  expect(uploader.medium).to have_dimensions(247, 380)
+    #end
+
+    it "scales down a landscape image to be exactly 259 by 400 pixels" do
+      expect(uploader.thumb).to have_dimensions(259, 400)
     end
 
-    it "scales down a landscape image to be exactly 259 by 399 pixels" do
-      expect(uploader.thumb).to have_dimensions(259, 399)
-    end
-
-    it "scales down a landscape image to be exactly 112 by 172 pixels" do
-      expect(uploader.small).to have_dimensions(112, 172)
+    it "scales down a landscape image to be exactly 111 by 171 pixels" do
+      expect(uploader.small).to have_dimensions(111, 171)
     end
 
   end
