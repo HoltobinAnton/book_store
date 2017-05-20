@@ -56,6 +56,11 @@ group :test, :development do
   gem 'carrierwave', '~> 1.0'
   gem 'poltergeist'
   gem 'phantomjs', :require => 'phantomjs/poltergeist'
+  gem 'better_errors'
+  gem 'pry'
+  gem 'pry-nav'
+  gem 'pry-rails'
+  gem 'binding_of_caller'
 
   gem 'byebug', platform: :mri
 end

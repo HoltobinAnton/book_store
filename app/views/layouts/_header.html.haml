@@ -30,7 +30,7 @@
               %li
                 %a.collapse-link{href: "#"} Web design
           %li
-            %a{href: "#"} My account
+            %a{href: "#"} My
       .hidden-xs
         %ul.nav.navbar-nav
           %li
@@ -47,5 +47,21 @@
               %li.divider{role: "separator"}
               %li
                 %a{href: "#"} Log out
-          %li
-            %a{href: "#"} My account
+
+          - if user_signed_in?
+            %li.dropdown
+              = link_to 'My account', {}, class: "dropdown-toggle", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"
+              %ul.dropdown-menu
+                %li
+                  = link_to 'Setting', edit_user_registration_path
+                %li
+                  = link_to 'My Orders', {}
+                %li
+                  = link_to 'Admin panel', rails_admin.dashboard_path
+                %li
+                  = link_to 'Log Out', destroy_user_session_path, method: :delete
+          - else
+            %li
+              = link_to 'Sign in', new_user_session_path
+            %li
+              = link_to 'Sing up', new_user_registration_path
