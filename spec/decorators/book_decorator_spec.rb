@@ -16,4 +16,9 @@ describe BookDecorator do
   it 'should return materails list' do
    # expect(book.materials_list).to eq('Design, Carton')
   end
+
+  it 'should return Reviews (0) ' do
+    expect(book.rev_count).to eq('Reviews (0)')
+  end
+
 end

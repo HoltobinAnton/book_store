@@ -1,0 +1,11 @@
+.col-sm-8
+  = form_for(book.reviews.new) do |f|
+    = f.hidden_field(:book_id, value: book.id)
+    = f.hidden_field(:rating, value: 3)
+    .form-group
+      %label.control-label.input-label{for: "title"} Title
+      = f.text_field :title, class: 'form-control'
+      %label.control-label.input-label{for: "description"} Description
+      = f.text_area :description, class: 'form-control'
+      .text-right
+        = f.button 'Post', class: 'btn btn-primary mb-35'

@@ -3,3 +3,8 @@
     %i.fa.fa-long-arrow-left.mr-15
     Back to results
   = render @book
+  %h3.in-gold-500.mb-25= @book.rev_count
+  - unless @book.reviews.blank?
+    = render @book.reviews
+  = render partial: "reviews/review_form", locals: { book: @book }
+

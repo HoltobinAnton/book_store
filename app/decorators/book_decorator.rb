@@ -34,5 +34,9 @@ class BookDecorator < Draper::Decorator
    "H: #{dimension.H}" + "x W: #{dimension.W}" + "x D: #{dimension.D}"
   end
 
+  def rev_count
+    "Reviews (#{reviews.count})"
+  end
+
   
 end
