@@ -6,5 +6,9 @@
   %h3.in-gold-500.mb-25= @book.rev_count
   - unless @book.reviews.blank?
     = render @book.reviews
-  = render partial: "reviews/review_form", locals: { book: @book }
-
+  - if can? :create, Review
+    = render partial: "reviews/review_form", locals: { book: @book }
+  - else
+    %h3.text-center
+      Only registered users can leave reivews 
+      = link_to 'Sign in', new_user_session_path, class: 'general-title-margin'
