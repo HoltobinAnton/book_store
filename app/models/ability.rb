@@ -5,6 +5,7 @@ class Ability
 
     user ||= User.new
     can :read, Book
+    can :read, Review
 
     if user.persisted?
       can :create, Review
