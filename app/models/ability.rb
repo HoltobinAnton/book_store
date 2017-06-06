@@ -8,7 +8,11 @@ class Ability
     can :read, Review
 
     if user.persisted?
+      can :manage, User
+      can :new, Review
+      can :update, Book
       can :create, Review
+
     end
 
     # Define abilities for the passed in user here. For example:
