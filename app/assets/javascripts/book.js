@@ -1,4 +1,10 @@
 $(document).ready(function() {
+
+    $('#star-rating').raty({
+        path: '/assets',
+        scoreName: 'review[rating]'
+     });
+    
     // Configure/customize these variables.
     var showChar = 280;  // How many characters are shown by default
     var ellipsestext = "...";

@@ -8,5 +8,9 @@
           .general-message-verified Verified Reviewer
           .general-message-name= review.user.email
       .mb-15
-        %i.fa.fa-star.rate-star
+        - review.rating.times do
+          %i.fa.fa-star.rate-star
       %p= review.description
+
+
+

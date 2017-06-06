@@ -22,4 +22,5 @@ class Book < ApplicationRecord
   def total_price(count)
     self.price * count if check_count?(count)
   end
+
 end
