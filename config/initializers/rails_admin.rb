@@ -33,9 +33,25 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
+    state
 
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+  end
+  config.model Review do
+    list do
+      fields :title, :rating, :book, :user, :created_at
+      field :state, :state
+    end
+
+    edit do
+      fields :title, :description, :rating, :book, :user, :created_at
+      field :state, :state
+    end
+    state({
+      events: {publish: 'btn-success', unpublish: 'label-important', cansel: 'btn-danger'},
+      states: {in_draft: 'label-warning', published: 'btn-success', canseled: 'btn-danger'}
+    })
   end
 end

@@ -7,7 +7,8 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
 require "cancan/matchers"
-
+require 'aasm/rspec'
+require "rectify/rspec"
 
 require 'capybara/poltergeist'
 Capybara.javascript_driver = :poltergeist
@@ -41,6 +42,7 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
+  config.include Rectify::RSpec::Helpers
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
