@@ -3,8 +3,11 @@
     %i.fa.fa-long-arrow-left.mr-15
     Back to results
   = render @book
-  %h3.in-gold-500.mb-25= @book.rev_count
   - unless @book.reviews.blank?
+    = t('Rating:') 
+    - @book.average_rating.times do
+      %i.fa.fa-star.rate-star
+    %h3.in-gold-500.mb-25= @book.rev_count
     = render @book.reviews
   - if can? :create, Review
     = render partial: "reviews/review_form", locals: { book: @book }

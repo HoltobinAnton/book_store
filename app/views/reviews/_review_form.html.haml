@@ -1,3 +1,4 @@
+%h3.in-gold-500.mb-25= t('Write your own review')
 .col-sm-8
   = simple_form_for book.reviews.new, as: @review_form do |f|
     .form-group
@@ -9,5 +10,3 @@
       = f.input :description, input_html: { class: 'form-control' }
       .text-right
         = f.button :submit, 'Post', class: "btn btn-primary mb-35"
-
-

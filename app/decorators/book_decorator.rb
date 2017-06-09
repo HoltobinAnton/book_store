@@ -35,7 +35,11 @@ class BookDecorator < Draper::Decorator
   end
 
   def rev_count
-    "Reviews (#{reviews.count})"
+    "Reviews (#{reviews.where(state: 'published').size})"
+  end
+
+  def average_rating
+    reviews.where(state: 'published').average('rating').to_i
   end
 
   
