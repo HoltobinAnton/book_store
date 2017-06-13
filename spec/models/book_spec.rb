@@ -19,6 +19,7 @@ RSpec.describe Book, type: :model do
     it { is_expected.to belong_to(:dimension) }
     it { is_expected.to have_many(:pictures) }
     it { is_expected.to have_many(:reviews) }
+    it { is_expected.to have_many(:order_items) }
   end 
 
   describe 'Quantity' do
