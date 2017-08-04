@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :material do
-    title "Design"
+    title Faker::Beer.hop
   end
 end

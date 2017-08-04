@@ -1,0 +1,8 @@
+= form_tag cart_path, method: :put, remote: true do
+  .col-sm-4
+    .input-group.general-input-group
+      %label.input-label Enter Your Coupon Code
+      = text_field_tag "discount", nil, name: 'secret_code', placeholder: 'Enter Your Coupon Code', class: 'form-control mb-30 secret_code'
+      %div
+        %button.btn.btn-primary.mr-5.mb-15.visible-xs-inline-block Apply Coupon
+        = submit_tag 'Update cart', class: 'button btn btn-primary mb-15 res-block'

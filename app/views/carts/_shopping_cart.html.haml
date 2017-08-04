@@ -1,0 +1,28 @@
+%main.container.general-main-wrap
+  %h1.general-title-margin Cart
+  
+  .hidden-xs
+    %table.table.table-hover{id: 'test_id_for_tabel'}
+      %tr.no-hover
+        %th.col-pic.pl-0
+          %span.in-grey-600 Product
+        %th.col-title
+        %th.col-price
+          %span.in-grey-600 Price
+        %th.col-quantity
+          %span.in-grey-600 Quantity
+        %th.col-total
+          %span.in-grey-600 SubTotal
+        %th.col-close
+      %tr
+        = render current_order.order_items
+      
+
+
+  .general-order-wrap
+    .row
+      = render 'coupon'
+      #order_summary
+        = render partial: 'order_summary', locals: { order: current_order}
+      
+  %button.btn.btn-default.mb-20.hidden-xs.center-block Checkout

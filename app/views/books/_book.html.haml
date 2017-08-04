@@ -12,15 +12,15 @@
     .row
       .col-xs-12.col-md-4
         %p.h1.in-gold-500.mt-10= @book.price_from_euro
-      .col-xs-5.col-md-3
-        .input-group.general-position
-          %a.input-link{href: "#"}
-            %i.fa.fa-minus.line-height-40
-          %input.form-control.quantity-input{type: "text"}
-          %a.input-link{href: "#"}
-            %i.fa.fa-plus.line-height-40
-      .col-xs-7.col-md-5
-        %button.btn.btn-default.pull-right.general-position Add to Cart 
+      = form_for @order_item, remote: true do |f|
+        = f.hidden_field :book_id, value: book.id
+        .col-xs-5.col-md-3
+          .input-group.general-position#buttons
+            %i.fa.fa-minus.line-height-40.input-link{id: 'click_minus'}
+            = f.text_field :quantity, value: 1, class: 'form-control quantity-input', id: "value_text_field"
+            %i.fa.fa-plus.line-height-40.input-link{id: 'click_plus'}
+        .col-xs-7.col-md-5
+          = f.submit 'Add to Cart', class: "btn btn-default pull-right general-position"
     .card
       %p Description
       %p.in-grey-600.small.line-height-2
@@ -36,4 +36,7 @@
     .card
       .clearfix
         %p.general-item-info.pull-right= @book.materials_list
-        %p.break-word Materials  
+        %p.break-word Materials
+    .cart
+      .clearfix
+        #target

@@ -2,6 +2,8 @@
 Author.destroy_all
 Book.destroy_all
 Category.destroy_all
+Order.destroy_all
+OrderItem.destroy_all
 
 category_array = ['Mobile development',
   'Photo',
@@ -33,7 +35,7 @@ end
 
 rand(10..80).times do
   book = Book.new
-  book.title = Faker::Company.name
+  book.title = Faker::Book.title
   book.price = Faker::Number.decimal(2, 2)
   book.quantity = rand(40..350)
   rand(2..3).times do
