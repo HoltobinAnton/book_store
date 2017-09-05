@@ -45,7 +45,7 @@ RSpec.describe OrderItemsController, type: :controller do
   end
 
   describe 'PUT #update' do
-    let(:params) { { increment: true, quantity: 1, id: book_id } }
+    let(:params) { { increment: true, quantity: 1, id: order_item.id } }
     subject { put :update, format: :js, params: params }
     it 'update an order_item' do
       expect { subject }.to change { order_item.reload.quantity }.by(1)
@@ -68,7 +68,7 @@ RSpec.describe OrderItemsController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-    let(:params) { delete :destroy, format: :js, params: { id: book_id } }
+    let(:params) { delete :destroy, format: :js, params: { id: order_item.id } }
     context 'delete an item' do
       subject { params }
       it 'should delete one item' do

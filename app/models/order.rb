@@ -7,8 +7,6 @@ class Order < ApplicationRecord
 
   def subtotal_count
     order_items.collect do |oi|
-      p oi.valid? ? (oi.quantity * oi.unit_price) : 0
-
       oi.valid? ? (oi.quantity * oi.unit_price) : 0
     end.sum
   end
