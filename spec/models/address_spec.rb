@@ -14,7 +14,6 @@ RSpec.describe Address, type: :model do
 
   describe 'Association' do
     it { is_expected.to belong_to(:user) }
-    it { is_expected.to belong_to(:order) }
     it { is_expected.to have_many(:countries) }
   end
   

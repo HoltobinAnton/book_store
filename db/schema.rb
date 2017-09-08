@@ -10,16 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170905154431) do
+ActiveRecord::Schema.define(version: 20170908111537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
-    t.string  "city",    limit: 50
+    t.string  "city",      limit: 50
     t.integer "zip"
-    t.string  "phone",   limit: 15
+    t.string  "phone",     limit: 15
     t.integer "user_id"
+    t.string  "address",   limit: 50
+    t.integer "county_id"
+    t.index ["county_id"], name: "index_addresses_on_county_id", using: :btree
     t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
   end
 

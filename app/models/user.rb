@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :reviews
   has_many :orders
-
+  has_many :addresses
+  has_many :countries
   validates_length_of :first_name, :last_name, maximum: 50
 end
