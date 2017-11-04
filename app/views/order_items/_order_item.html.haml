@@ -1,0 +1,23 @@
+%tr{id: "order_item_id_#{order_item.id}"}
+  %td
+    .general-img-wrap-table
+      = image_tag order_item.book.decorate.main_image, class: 'img-responsive'
+    .images.clearfix
+  %td
+    %p.title= order_item.book.title
+  %td
+    %span.font-16.in-gold-500= order_item.unit_price
+  %td
+    .input-group.general-position#buttons
+      = link_to order_item_path(id: order_item.id, increment: false), method: :put, remote: true do
+        %i.fa.fa-minus.line-height-40.input-link
+      %input.form-control.quantity-input{type: "text", value: order_item.quantity, class: "oi_text_id_#{order_item.id}"}
+      = link_to order_item_path(id: order_item.id, increment: true), method: :put, remote: true do
+        %i.fa.fa-plus.line-height-40.input-link
+  %td
+    %span.font-16.in-gold-500{id: "oi_total_#{order_item.id}"}= order_item.total_price 
+  %td
+    = link_to order_item_path(order_item), method: :delete, remote: true do
+      %button.close.general-cart-close{type: "button", 'aria-label': "Close"}
+        %span{'aria-hidden': "true"} &times;
+

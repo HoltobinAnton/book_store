@@ -1,0 +1,9 @@
+%main.container.general-main-wrap
+  = render partial: 'checkout_steps'
+  = form_for @order, url: wizard_path do |f|
+    .hidden-xs.mb-res-50
+      = render partial: 'delivery_list', locals: { order: @order }
+    .general-text-align
+      = render partial: 'check_order', locals: { order: @order }
+    .text-center
+      = f.submit t('save_and_continue'), class: ' center-block mb-20 btn btn-default'

@@ -1,0 +1,28 @@
+.hidden-xs.mb-res-50.margin-top
+  %table.table.table-hover
+    %thead
+      %tr
+        %th
+          %span.in-grey-600= t('number')
+        %th
+          %span.in-grey-600.margin-left= t('completed_at')
+        %th
+          %span.in-grey-600.margin-left= t('status')
+        %th
+          %span.in-grey-600= t('total')
+    %tbody
+      - orders.each do |order|
+        %tr
+          %td
+            %span.general-order-number= order.id
+          %td
+            %span.in-grey-900.font-16.fw-300.padding-right= order.created_at.strftime("%B %d, %Y")
+          %td
+            %span.font-16.in-grey-900.fw-300.padding-right= t("#{order.state}")
+          %td
+            %strong.font-16= "€#{order.order_total}"
+  .text-center.col-sm-12{id: "paginanor_id"}  
+    = paginate orders
+    
+        
+        

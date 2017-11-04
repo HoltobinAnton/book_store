@@ -1,0 +1,12 @@
+%main.container
+  %h1.general-title-margin= t('catalog')
+  .hidden-xs.clearfix
+    .dropdowns.pull-right
+      = render partial: 'drop_down_sort', locals: { category: @category, title_sort: @title_sort }
+    = render partial: 'categories_list', locals: { categories: @categories_list }
+    
+  .mb-120
+    = render partial: 'thumb_wrap', locals: { books: @books }
+    .text-center.col-sm-12{id: "paginanor_id"}  
+      = paginate @books
+    

@@ -1,0 +1,5 @@
+.jumbotron.text-center.mb-0
+  %h2.h1= t('jumbotron_welcome')
+  .mb-res-50
+    %p= t('jumbotron_desc')
+    = link_to t('get_started'), category_path(id: 1), class: 'btn btn-default'

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" media="all" href="/assets/application-104fa402a75eeb115177f86d2b84448a3c73e379eab624f1a6fc92ff898cc1ee.css" data-turbolinks-track="reload" />
+<script src="/assets/application-1b29c14ea1686ec9ea703c9a59cc7fb0cd172562595a1b92690bab786d2cc596.js" data-turbolinks-track="reload"></script>
+<meta charset='UTF-8'>
+<meta content='width=device-width' name='viewport'>
+<title>Application</title>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet'>
+</head>
+<body>
+<header class='navbar navbar-default mb-0'>
+<div class='container'>
+<div class='navbar-header'>
+<button class='navbar-toggle pull-left ml-15' data-target='#navbar' data-toggle='collapse' type='button'>
+<span class='sr-only'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+<a class='navbar-brand'>Bookstore</a>
+<a class="a shop-link pull-right visible-xs" data-remote="true" href="/cart"><span class='shop-icon'>
+<span class='shop-quantity'>0</span>
+</span>
+</a></div>
+<a id="cart_count" class="a shop-link pull-right hidden-xs" href="/cart"><span class='shop-icon'>
+<span class='shop-quantity'>
+0
+</span>
+</span>
+</a>
+<div aria-expanded='false' class='navbar-collapse collapse pl-30' id='navbar'>
+<div class='hidden-xs'>
+<ul class='nav navbar-nav'>
+<li>
+<a href="http://www.example.com/">Home</a>
+</li>
+<li class='dropdown'>
+<a aria-expanded='false' aria-haspopup='true' class='dropdown-toggle' data-toggle='dropdown' href='#' role='button'>Shop</a>
+<ul class='dropdown-menu'>
+<li>
+<a href="/categories/1">Mobile Development</a>
+</li>
+<li>
+<a href="/categories/2">Photo</a>
+</li>
+<li>
+<a href="/categories/3">Web Design</a>
+</li>
+<li>
+<a href="/categories/4">Web Developement</a>
+</li>
+</ul>
+</li>
+<li class='dropdown'>
+<a aria-expanded='false' aria-haspopup='true' class='dropdown-toggle' data-toggle='dropdown' href='#' role='button'>Language</a>
+<ul class='dropdown-menu language'>
+<li>
+<a href="/user/edit?locale=en">English</a>
+</li>
+<li>
+<a href="/user/edit?locale=ua">Ukraine</a>
+</li>
+</ul>
+</li>
+<li class='dropdown'>
+<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="/user/edit">My account</a>
+<ul class='dropdown-menu'>
+<li>
+<a href="/user/edit">Setting</a>
+</li>
+<li>
+<a href="/user">My Orders</a>
+</li>
+<li>
+<a href="/admin/">Admin panel</a>
+</li>
+<li class='divider' role='separator'></li>
+<li>
+<a rel="nofollow" data-method="delete" href="/users/sign_out">Log Out</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</header>
+
+<div class='alert'></div>
+<div id='flash-message-wrapper'>
+</div>
+
+<main class='container'>
+<h1 class='general-title-margin'>Settings</h1>
+<ul class='nav clearfix mb-20' id='nav-ul' role='tablist'>
+<li class='tab-item active' role='presentation'>
+<a aria-controls='address' class='tab-link' data-toggle='tab' href='#address' role='tab'>Address</a>
+</li>
+<li class='tab-item' role='presentation'>
+<a aria-controls='privacy' class='tab-link' data-toggle='tab' href='#privacy' role='tab'>Privacy</a>
+</li>
+</ul>
+<div class='tab-content'>
+<div class='tab-pane fade in active general-main-wrap' id='address'>
+<form>
+<div class='hidden-xs hidden-sm'>
+<div class='row'>
+<h3 class='general-subtitle text-center'>Billing Address</h3>
+</div>
+</div>
+<div class='row'>
+<div class='general-form'>
+<form class="new_address" id="new_address" action="/user/edit" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><div class='form-group'>
+<label class='control-label input-label' for='firstName'>First Name</label>
+<input class="firstName form-control" name="fname_bil" type="text" placeholder="First Name" id="address_first_name" />
+</div>
+<div class='form-group'>
+<label class='control-label input-label' for='lastName'>Last Name</label>
+<input class="lastName form-control" name="lname_bil" type="text" placeholder="Last Name" id="address_last_name" />
+</div>
+<div class='form-group'>
+<label class='control-label input-label' for='address'>Address</label>
+<input class="address form-control" name="address_bil" type="text" placeholder="Address" id="address_address" />
+</div>
+<div class='form-group'>
+<label class='control-label input-label' for='city'>City</label>
+<input class="city form-control" name="city_bil" type="text" placeholder="City" id="address_city" />
+</div>
+<div class='form-group'>
+<label class='control-label input-label' for='zip'>Zip</label>
+<input class="zip form-control" name="zip_bil" type="text" placeholder="Zip" id="address_zip" />
+</div>
+<div class='form-group'>
+<label class='control-label input-label' for='сountry'>Country</label>
+<select class="form-control" placeholder="Select a country" name="country_bil" id="address_country_id"></select>
+</div>
+<div class='form-group'>
+<label class='control-label input-label' for='phone'>Phone</label>
+<input class="phone form-control" name="phone_bil" type="text" placeholder="Example 095412367" id="address_phone" />
+</div>
+<div class='text-center general-text-align'>
+<input type="submit" name="commit" value="Save address" class="btn btn-default mb-20" data-disable-with="Save address" />
+</div>
+</form>
+
+</div>
+</div>
+</form>
+
+</div>
+<div class='tab-pane fade' id='privacy' role='tabpanel'>
+<div class='row mb-60'>
+<div class='col-sm-5'>
+<p class='in-gold-500 font-18 mb-25'>Email</p>
+<form class="edit_user" id="edit_user_3" action="/user.3" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><div class='form-group mb-30'>
+<label class="control-label input-label" for="user_email">Enter new email</label>
+<input placeholder="Enter new email" class="form-control" type="email" value="laverna@weimann.co" name="user[email]" id="user_email" />
+</div>
+<div class='general-text-align'>
+<input type="submit" name="commit" value="Save email" class="btn btn-default mb-20" data-disable-with="Save email" />
+</div>
+</form>
+</div>
+<div class='col-sm-5 col-sm-offset-1'>
+<p class='in-gold-500 font-18 mb-25'>Password</p>
+<form class="edit_user" id="edit_user_3" action="/user.3" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><div class='form-group mb-30'>
+<label class="control-label input-label" for="user_password">New password</label>
+<input class="form-control" placeholder="New password" type="password" name="user[password]" id="user_password" />
+</div>
+<div class='form-group mb-40'>
+<label class="control-label input-label" for="user_password_confirmation">Password Confirmation</label>
+<input class="form-control" placeholder="Confirm Password" type="password" name="user[password_confirmation]" id="user_password_confirmation" />
+</div>
+<div class='general-text-align'>
+<input type="submit" name="commit" value="Save password" class="btn btn-default mb-20" data-disable-with="Save password" />
+</div>
+</form>
+</div>
+
+<div class='col-sm-12'>
+<p class='in-gold-500 font-18 mb-25'>Remove Account</p>
+<div class='general-settings-btn'>
+<form class="button_to" method="post" action="/users"><input type="hidden" name="_method" value="delete" /><input data-confirm="Are you sure?" class="btn disabled mb-20" id="btn_remove" type="submit" value="Cancel my account" /></form>
+</div>
+<div class='form-group checkbox general-settings-checkbox'>
+<label class='checkbox-label'>
+<input class='checkbox-input active_button' hidden='true' type='checkbox'>
+<span class='checkbox-icon'>
+<i class='fa fa-check'></i>
+</span>
+<span class='checkbox-text active_button'>I understand that all data will be lost</span>
+</label>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</main>
+
+<footer class='navbar navbar-inverse mb-0' id='footer'>
+<div class='container'>
+<div class='row'>
+<div class='col-sm-9'>
+<ul class='list-inline mb-25'>
+<li>
+<a class="nav-link" href="http://www.example.com/">Home</a>
+</li>
+<li>
+<a class="nav-link" href="/categories/1">Shop</a>
+</li>
+<li>
+<a class="nav-link" href="/user">My Orders</a>
+</li>
+<li>
+<a class="nav-link" href="/user/edit"><span class="translation_missing" title="translation missing: en.sett">Sett</span></a>
+</li>
+</ul>
+</div>
+<div class='col-sm-3'>
+<ul class='list-inline'>
+<li>
+<a class='nav-link' href='#'>
+<i aria-hidden='true' class='fa fa-facebook'></i>
+</a>
+</li>
+<li>
+<a class='nav-link' href='#'>
+<i aria-hidden='true' class='fa fa-twitter'></i>
+</a>
+</li>
+<li>
+<a class='nav-link' href='#'>
+<i aria-hidden='true' class='fa fa-google-plus'></i>
+</a>
+</li>
+<li>
+<a class='nav-link' href='#'>
+<i aria-hidden='true' class='fa fa-instagram'></i>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+
+</body>
+<script src='https://use.fontawesome.com/67602d7308.js'></script>
+</html>

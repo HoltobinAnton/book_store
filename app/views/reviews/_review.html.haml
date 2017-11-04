@@ -1,0 +1,21 @@
+- if review.state.eql?('published')
+  .general-message-wrap.divider-lg
+    .clearfix
+    - if review.user.image.nil?
+      %span.img-circle.logo-size.logo-empty.img-review
+        N
+    - else
+      = image_tag review.user.image, class: "img-circle logo-size img-review"
+    .ml-70
+      %div
+        .general-message-date.hidden-xs= review.created_at.strftime("%Y/%m/%d")
+        .max-240
+          .general-message-verified= t('review')
+          .general-message-name= review.user.email
+      .mb-15
+        - review.rating.times do
+          %i.fa.fa-star.rate-star
+      %p= review.description
+
+
+

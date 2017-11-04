@@ -1,0 +1,24 @@
+#thumbnail
+  .mb-35
+    %h3 Best Sellers
+    .row
+      - @best_sellers.each do |book|
+        .col-sm-6.col-md-3
+          .general-thumb-wrap
+            .thumbnail.general-thumbnail
+              = image_tag book.decorate.main_image, class: "img-shadow general-thumbnail-img", alt: "design-book"
+              .thumb-hover
+                .general-thumb-link-wrap
+                  = link_to book, class: "thumb-hover-link", id: "thumb_eye_icon" do
+                    %i.fa.fa-eye.thumb-icon{'aria-hidden': "true"}
+                  = form_for current_order.order_items.new, remote: true do |field|
+                    = field.hidden_field :book_id, value: book.id
+                    = field.hidden_field :quantity, value: 1
+                    = field.button "", class: "transparent thumb-hover-link" do
+                      %i.fa.fa-shopping-cart.thumb-icon
+            .clearfix
+              %p.pull-right.font-16.in-gold-500= "€#{book.price}"
+              %p.title.mr-55= book.title
+            %span.divider-sm
+            %p.lead.small= book.decorate.authors_list
+        

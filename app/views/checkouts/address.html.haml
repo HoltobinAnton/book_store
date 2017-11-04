@@ -1,0 +1,26 @@
+%main.container
+  = render partial: 'checkout_steps'
+  .res-mb-100
+    .hidden-xs.hidden-sm
+      .row
+        .col-md-5
+          %h3.general-subtitle= t('billing_address')
+          %p.general-info-text= t('all_req')
+        .col-md-5.col-md-offset-1
+          %h3.general-subtitle= t('shipping_address')
+    .row
+      = form_for @order, url: wizard_path do |f|
+        .col-md-5.mb-40
+          .visible-xs.visible-sm
+            %h3.general-subtitle= t('billing_address')
+            %p.general-info-text= t('all_req')
+          = render partial: 'checkouts/billing_form', locals: {order: @order }
+        .col-md-5.col-md-offset-1.mb-60
+          .visible-xs.visible-sm
+            %h3.general-subtitle= t('shipping_address')
+          = render partial: 'checkouts/shipping_form', locals: { order: @order }
+
+        
+        .general-text-align.mb-60.col-md-10
+          = render partial: 'check_order', locals: { order: @order }
+          = f.submit t('save_and_continue'), class: 'center-block mb-20 btn btn-default'

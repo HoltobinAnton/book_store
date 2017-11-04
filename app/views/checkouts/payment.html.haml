@@ -1,0 +1,10 @@
+%main.container.mb-res-50
+  = render partial: 'checkout_steps'
+  %h3.general-subtitle= t('credit_card')
+  = form_for CreditCard.new, url: wizard_path, method: :put do |f|
+    = render partial: 'credit_card_form', locals: { field: f }
+    .general-text-align
+      = render partial: 'check_order', locals: { order: @order }
+    .text-center
+      = f.submit t('save_and_continue'), class: ' center-block mb-20 btn btn-default'
+  

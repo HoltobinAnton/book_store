@@ -1,0 +1,7 @@
+%form
+  .hidden-xs.hidden-sm
+    .row
+      %h3.general-subtitle.text-center= t('billing_address')
+  .row
+    .general-form
+      = render partial: 'billing_form', locals: { user: @user }

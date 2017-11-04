@@ -1,0 +1,28 @@
+%main.container.general-main-wrap
+  %h1.general-title-margin= t('cart')
+  
+  .hidden-xs
+    %table.table.table-hover{id: 'test_id_for_tabel'}
+      %tr.no-hover
+        %th.col-pic.pl-0
+          %span.in-grey-600= t('product')
+        %th.col-title
+        %th.col-price
+          %span.in-grey-600= t('price')
+        %th.col-quantity
+          %span.in-grey-600= t('quantity')
+        %th.col-total
+          %span.in-grey-600= t('subtotal')
+        %th.col-close
+      %tr
+        = render current_order.order_items
+      
+
+
+  .general-order-wrap
+    .row
+      = render 'coupon'
+      #order_summary
+        = render partial: 'order_summary', locals: { order: current_order}
+      
+  = button_to t('checkout'), checkouts_path, method: :get, class: "btn btn-default mb-20 hidden-xs center-block"
