@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Book, type: :model do
   describe 'Validation' do
-    it 'is valid with valid attributes' do 
+    it 'is valid with valid attributes' do
       expect(create(:book)).to be_valid
     end
     describe 'can not be nil ( title, price, quantity )' do
@@ -10,6 +10,33 @@ RSpec.describe Book, type: :model do
         it { is_expected.to validate_presence_of(attr) }
       end
     end
+  end
+
+  context 'scopes' do
+    let(:book_three) { create :book, title: 'Zen...', price: 30, created_at: 3.day.ago  }
+    let(:book_two) { create :book, title: 'GetPhone', price: 20, created_at: 2.day.ago  }
+    let(:book_one) { create :book, title: 'AppleBook', price: 10, created_at: 1.day.ago }
+
+    it 'should return books to sort by title: :asc' do
+      Book.title_asc.should eq [book_one, book_two, book_three]
+    end
+
+    it 'should return books to sort by title: :desc' do
+      Book.title_desc.should eq [book_three, book_two, book_one]
+    end
+
+    it 'should return books to sort by price: :asc' do
+      Book.low_price.should eq [book_one, book_two, book_three]
+    end
+
+    it 'should return books to sort by price: :desc' do
+      Book.high_price.should eq [book_three, book_two, book_one]
+    end
+
+    it 'should return books to sort by create_at: desc' do
+      Book.new_books.should eq [book_one, book_two, book_three]
+    end
+
   end
 
   describe 'Associations' do

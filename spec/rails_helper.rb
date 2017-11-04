@@ -12,6 +12,7 @@ require "rectify/rspec"
 require 'capybara/rspec'
 require 'capybara-screenshot/rspec'
 require 'support/wait_for_ajax'
+require 'support/support_params'
 
 require 'capybara/poltergeist'
 Capybara.javascript_driver = :poltergeist
@@ -47,6 +48,7 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :view
   config.include Rectify::RSpec::Helpers
   config.include WaitForAjax
+  config.include SupportParams
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.

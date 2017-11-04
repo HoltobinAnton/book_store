@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170908112802) do
+ActiveRecord::Schema.define(version: 20171019044627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20170908112802) do
     t.integer "user_id"
     t.string  "address",    limit: 50
     t.integer "country_id"
+    t.string  "first_name"
+    t.string  "last_name"
     t.index ["country_id"], name: "index_addresses_on_country_id", using: :btree
     t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
   end
@@ -87,6 +89,25 @@ ActiveRecord::Schema.define(version: 20170908112802) do
     t.boolean  "active",      default: true
   end
 
+  create_table "credit_cards", force: :cascade do |t|
+    t.string   "card_name"
+    t.string   "card_number"
+    t.integer  "mount"
+    t.integer  "year"
+    t.string   "cvv"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "deliveries", force: :cascade do |t|
+    t.decimal  "price",      precision: 7, scale: 2
+    t.string   "name"
+    t.integer  "min_day"
+    t.integer  "max_day"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
   create_table "dimensions", force: :cascade do |t|
     t.float    "H"
     t.float    "W"
@@ -115,12 +136,18 @@ ActiveRecord::Schema.define(version: 20170908112802) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
-    t.decimal  "sub_total",   precision: 7, scale: 2
-    t.decimal  "order_total", precision: 7, scale: 2
-    t.string   "state"
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
-    t.decimal  "discount",    precision: 4, scale: 2, default: "0.0"
+    t.decimal  "sub_total",        precision: 7, scale: 2
+    t.decimal  "order_total",      precision: 7, scale: 2
+    t.string   "state",                                    default: "waiting_processing"
+    t.datetime "created_at",                                                              null: false
+    t.datetime "updated_at",                                                              null: false
+    t.decimal  "discount",         precision: 4, scale: 2, default: "0.0"
+    t.integer  "delivery_id"
+    t.integer  "credit_card_id"
+    t.string   "confirm_token"
+    t.boolean  "status_confirmed",                         default: false
+    t.index ["credit_card_id"], name: "index_orders_on_credit_card_id", using: :btree
+    t.index ["delivery_id"], name: "index_orders_on_delivery_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 
@@ -147,7 +174,7 @@ ActiveRecord::Schema.define(version: 20170908112802) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                             default: "", null: false
+    t.string   "email",                             default: ""
     t.string   "encrypted_password",                default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -162,6 +189,9 @@ ActiveRecord::Schema.define(version: 20170908112802) do
     t.boolean  "admin"
     t.string   "first_name",             limit: 50
     t.string   "last_name",              limit: 50
+    t.string   "provider"
+    t.string   "uid"
+    t.text     "image"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

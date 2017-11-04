@@ -1,16 +1,16 @@
-%footer.navbar.navbar-inverse.mb-0
+%footer.navbar.navbar-inverse.mb-0{id: 'footer'}
   .container
     .row
       .col-sm-9
         %ul.list-inline.mb-25
           %li
-            %a.nav-link{href: "#"} Home
+            = link_to t('home'), root_url, class: "nav-link"
           %li
-            %a.nav-link{href: "#"} Shop
+            = link_to t('shop'), category_path(id: 1), class: "nav-link"
           %li
-            %a.nav-link{href: "#"} Orders
+            = link_to t('my_orders'), user_path, class: "nav-link"
           %li
-            %a.nav-link{href: "#"} Settings
+            = link_to t('sett'), edit_user_path, class: "nav-link"
       .col-sm-3
         %ul.list-inline
           %li

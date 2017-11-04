@@ -3,13 +3,13 @@ RailsAdmin.config do |config|
   ### Popular gems integration
 
   ## == Devise ==
-  # config.authenticate_with do
-  #   warden.authenticate! scope: :user
-  # end
-  # config.current_user_method(&:current_user)
+   config.authenticate_with do
+     warden.authenticate! scope: :user
+   end
+   config.current_user_method(&:current_user)
 
   ## == Cancan ==
-  # config.authorize_with :cancan
+   config.authorize_with :cancan
 
   ## == Pundit ==
   # config.authorize_with :pundit
@@ -52,6 +52,22 @@ RailsAdmin.config do |config|
     state({
       events: {publish: 'btn-success', unpublish: 'label-important', cansel: 'btn-danger'},
       states: {in_draft: 'label-warning', published: 'btn-success', canseled: 'btn-danger'}
+    })
+  end
+  config.model Order do
+    list do
+      fields :status_confirmed, :state,  :order_total, :order_items, :user, :created_at 
+      field :state, :state
+    end
+    state({
+      events: {was_delivered: 'btn-success',
+               in_delivering: 'btn-warning',
+               default_state: 'label-warning',
+               cancel: 'btn-danger'},
+      states: {waiting_processing: 'label-warning',
+               in_delivery: 'btn-warning',
+               delivered: 'btn-success',
+               canceled: 'btn-danger' }
     })
   end
 end

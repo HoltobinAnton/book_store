@@ -1,17 +1,5 @@
 module OrderItemsHelper
   def increment(item)
-    p item
-    p item
-    p item
-    p item
-    p item
-    p item
-    p item
-    p item
-    p item
-    p item
-    p item
-    p item
     item < 99 ? item += 1 : 99
   end
 

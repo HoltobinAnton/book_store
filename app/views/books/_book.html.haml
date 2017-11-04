@@ -20,23 +20,23 @@
             = f.text_field :quantity, value: 1, class: 'form-control quantity-input', id: "value_text_field"
             %i.fa.fa-plus.line-height-40.input-link{id: 'click_plus'}
         .col-xs-7.col-md-5
-          = f.submit 'Add to Cart', class: "btn btn-default pull-right general-position"
+          = f.submit t('add_to_cart'), class: "btn btn-default pull-right general-position"
     .card
-      %p Description
+      %p= t('description')
       %p.in-grey-600.small.line-height-2
         %span.more= @book.description
     .card
       .clearfix
         %p.general-item-info.pull-right= @book.year_publication
-        %p.break-word Year of publication
+        %p.break-word= t('year_of')
     .card
       .clearfix
         %p.general-item-info.pull-right= @book.dimension_attr
-        %p.break-word Dimensions
+        %p.break-word= t('dimensions')
     .card
       .clearfix
         %p.general-item-info.pull-right= @book.materials_list
-        %p.break-word Materials
+        %p.break-word= t('materials')
     .cart
       .clearfix
         #target

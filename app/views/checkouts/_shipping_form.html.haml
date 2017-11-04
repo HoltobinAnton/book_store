@@ -1,0 +1,29 @@
+= fields_for :addresses, check_address_second do |address_field|  
+  .hide_shipping_form
+    .form-group
+      %label.control-label.input-label{for: "firstName"}= t('first_name')
+      = address_field.text_field :first_name, class: 'firstName form-control', name: 'fname_ship', type: 'text', placeholder: t('first_name')
+    .form-group
+      %label.control-label.input-label{for: "lastName"}= t('last_name')
+      = address_field.text_field :last_name, class: 'lastName form-control', name: 'lname_ship', type: 'text', placeholder: t('last_name')
+    .form-group
+      %label.control-label.input-label{for: "address"}= t('address')
+      = address_field.text_field :address, class: 'address form-control', name: 'address_ship', type: 'text', placeholder: t('address')
+    .form-group
+      %label.control-label.input-label{for: "city"}= t('city')
+      = address_field.text_field :city, class: 'city form-control', name: 'city_ship', type: 'text', placeholder: t('city')
+    .form-group
+      %label.control-label.input-label{for: "zip"} Zip
+      = address_field.text_field :zip, class: 'zip form-control', name: 'zip_ship', type: 'text', placeholder: 'Zip'
+    .form-group
+      %label.control-label.input-label{for: "сountry"}= t('country')
+      = address_field.select(:country_id, countries_array, {}, class: 'form-control', placeholder: t("select_country"),name: 'country_ship')
+    .form-group
+      %label.control-label.input-label{for: "phone"}= t('phone')
+      = address_field.text_field :phone, class: 'phone form-control', name: 'phone_ship', type: 'text', placeholder: t('phone_example')
+  .form-group.checkbox
+    %label.checkbox-label
+      %input.checkbox-input{type: "checkbox", hidden: "true", id:'checkbox_for_address'}
+      %span.checkbox-icon
+        %i.fa.fa-check
+      %span.checkbox-text= t('use_bill_address')

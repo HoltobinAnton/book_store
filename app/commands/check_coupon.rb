@@ -1,23 +1,19 @@
 class CheckCoupon < Rectify::Command
-  VALID_COUPON = 'Coupon activated'.freeze
-  DEACTIVATED_COUPON = 'Coupon deactivated'.freeze
-  INVALID_STR = 'An error has occurred'.freeze
-
   def initialize(form)
     @form = form
   end
 
   def call
-    return broadcast :invalid, INVALID_STR if form.invalid?
+    return broadcast :invalid if form.invalid?
     if form.valid? && coupon.present?
       transaction do
         update_order 1
-        broadcast :valid, VALID_COUPON
+        broadcast :valid
       end
     elsif !check_active?
       transaction do
         update_order
-        broadcast :deactivated, DEACTIVATED_COUPON
+        broadcast :deactivated
       end
     end
   end

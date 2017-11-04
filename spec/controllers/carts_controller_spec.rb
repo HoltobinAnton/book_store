@@ -24,14 +24,14 @@ RSpec.describe CartsController, type: :controller do
     it 'Coupon activation' do
       allow(controller).to receive(:params).and_return(params)
       put :update, format: :js
-      expect(flash.now[:success]).to eq('Coupon activated')
+      expect(flash.now[:success]).to eq I18n.t('flash.coupon.valid')
       expect(response).to_not be_redirect
     end
     it 'invalid params' do
       params = { secret_code: Faker::Lorem.sentence(31) }
       allow(controller).to receive(:params).and_return(params)
       put :update, format: :js
-      expect(flash.now[:danger]).to eq('An error has occurred')
+      expect(flash.now[:danger]).to eq I18n.t('flash.coupon.invalid')
     end
   end
 end

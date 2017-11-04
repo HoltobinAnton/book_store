@@ -8,12 +8,12 @@ feature 'the cart inetface' do
 
   scenario 'should display link cart is empty adn redirect to root_path' do
     visit cart_path
-    expect(page).to have_link('Back to catalog')
-    click_link 'Back to catalog'
+    expect(page).to have_link I18n.t('back')
+    click_link I18n.t('back')
     expect(page).to have_current_path(root_path)
   end
 
-  scenario 'should dispalay update cart and chechout buttons' do
+  scenario 'should dispalay update cart and checkout buttons' do
     allow_any_instance_of(ApplicationController).to receive(:current_order)
       .and_return(order_with_oi)
     visit cart_path

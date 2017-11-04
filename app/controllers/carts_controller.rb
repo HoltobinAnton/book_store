@@ -7,9 +7,9 @@ class CartsController < ApplicationController
   def update
     coupon = CouponForm.from_params(params)
     CheckCoupon.call(coupon) do
-      on(:valid) { |mess| flash.now[:success] = mess }
-      on(:invalid) { |mess| flash.now[:danger] = mess }
-      on(:deactivated) { |mess| flash.now[:warning] = mess }
+      on(:valid) { flash.now[:success] = t('flash.coupon.valid') }
+      on(:invalid) { flash.now[:danger] = t('flash.coupon.invalid') }
+      on(:deactivated) { flash.now[:warning] = t('flash.coupon.deactivated') }
     end
   end
 

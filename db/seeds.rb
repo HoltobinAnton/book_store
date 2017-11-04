@@ -4,6 +4,31 @@ Book.destroy_all
 Category.destroy_all
 Order.destroy_all
 OrderItem.destroy_all
+Country.destroy_all
+Delivery.destroy_all
+User.destroy_all
+
+
+delivery_array = ['RocketExpress', 'HorseExpress']
+
+delivery_array.each do |delivery|
+  Delivery.create(name: delivery, min_day: 1, max_day: rand(3..10), price: rand(10..20))
+end
+
+
+countries_array = ['Ukraine', 
+  'Afghanistan', 
+  'Albania', 
+  'Algeria', 
+  'American Samoa', 
+  'Andorra', 
+  'Angola']
+
+  countries_array.each do |country|
+    Country.create(name: country)
+  end
+
+
 
 category_array = ['Mobile development',
   'Photo',
@@ -72,4 +97,7 @@ materials = ['Hardcove',
     end
     book.save!
   end
+
+User.create(email: 'admin@gmail.com', password: 'q12345', admin: true )
+  
 

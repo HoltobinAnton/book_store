@@ -1,10 +1,3 @@
-#   should have_abilities(:create, Post.new)
-#   should have_abilities([:read, :update], post)
-#   should have_abilities({manage: false, destroy: true}, post)
-#   should have_abilities({create: false}, Post.new)
-#   should not_have_abilities(:update, post)
-#   should not_have_abilities([:update, :destroy], post)
-
 require 'rails_helper'
 
 RSpec.describe Ability, type: :model do
@@ -30,6 +23,5 @@ RSpec.describe Ability, type: :model do
   context 'admin should manage all' do
     subject(:ability) { Ability.new(admin) }
     it { should be_able_to(:manage, :all) }
-    
   end
-end 
+end

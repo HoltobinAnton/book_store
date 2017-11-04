@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'the book interface' do
   background do
     @book = create(:book).decorate
-    visit book_path(@book.id)
+    visit book_path(@book.id, locale: 'en')
   end
   context 'Display content' do
     it 'should display the attributes of the book' do

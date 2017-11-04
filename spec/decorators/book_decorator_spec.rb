@@ -9,14 +9,6 @@ describe BookDecorator do
     expect(book.price_from_euro).to eq("€#{book.price}")
   end
 
-  it 'should return authors_list' do
-    #expect(book.authors_list).to eq('Fname2 Lname2, Fname Lname')
-  end
-
-  it 'should return materails list' do
-   # expect(book.materials_list).to eq('Design, Carton')
-  end
-
   it 'should return Reviews (0) ' do
     expect(book.rev_count).to eq('Reviews (0)')
   end

@@ -27,10 +27,6 @@ class AddOrderItem < Rectify::Command
     @order_item ||= @order.order_items.where(book_id: @book_id).first
   end
 
-#  def item_errors
-#    order_item.errors.full_messages if order_item.present?
-#  end
-
   def order_item_invalid?
     @order.nil? || quantity?
   end

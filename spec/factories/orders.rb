@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :order do
     user
-
+    state 'waiting_processing'
     trait :with_items do
       order_items { create_list(:order_item, 3) }
     end

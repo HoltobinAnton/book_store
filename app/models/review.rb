@@ -21,7 +21,4 @@ class Review < ApplicationRecord
       transitions from: [:published, :canseled], to: :in_draft
     end
   end
-
-
-  
 end

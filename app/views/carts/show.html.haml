@@ -1,8 +1,8 @@
 - if @order_items.empty?
   .empty
     %h3.text-center
-      Your cart is empty
+      = t('empty_cart')
       = link_to root_path, class: 'general-back-link' do
-        Back to catalog
+        = t('back')
 - else
   = render 'carts/shopping_cart'

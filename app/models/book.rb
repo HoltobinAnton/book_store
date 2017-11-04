@@ -12,6 +12,15 @@ class Book < ApplicationRecord
 
   mount_uploader :photos, AvatarUploader
 
+  scope :best_sellers, -> { joins(:order_items).distinct(:book_id).first(4) }
+  scope :new_books_slider, -> { order(:created_at).first(3) }
+
+  scope :new_books, -> { order(created_at: :desc) }
+  scope :title_asc, -> { order(title: :asc) }
+  scope :title_desc, -> { order(title: :desc) }
+  scope :low_price, -> { order(price: :asc) }
+  scope :high_price, -> { order(price: :desc) }
+
   def check_count?(count)
     self.quantity >= count ? true : false
   end

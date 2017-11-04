@@ -15,12 +15,12 @@ feature 'Coupon', type: :feature do
     first('#discount').set(coupon.secret_code)
     click_button('Update cart')
     wait_for_ajax
-    expect(page).to have_content("Coupon: €#{coupon.discount}")
+    expect(page).to have_content("Coupon €#{coupon.discount}")
     expect(page).to have_content('Coupon activated')
     first('#discount').set('test')
     click_button('Update cart')
     wait_for_ajax
-    expect(page).to have_content('Coupon: €0.0')
+    expect(page).to have_content('Coupon €0')
     expect(page).to have_content('Coupon deactivated')
   end
   

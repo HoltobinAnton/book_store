@@ -1,10 +1,10 @@
 %main.container
   = link_to :back, class: 'general-back-link' do
     %i.fa.fa-long-arrow-left.mr-15
-    Back to results
+    = t("back")
   = render @book
   - unless @book.reviews.blank?
-    = t('Rating:') 
+    = t('rating') 
     - @book.average_rating.times do
       %i.fa.fa-star.rate-star
     %h3.in-gold-500.mb-25= @book.rev_count
@@ -13,5 +13,5 @@
     = render partial: "reviews/review_form", locals: { book: @book }
   - else
     %h3.text-center
-      Only registered users can leave reivews 
-      = link_to 'Log in', new_user_session_path, class: 'general-title-margin'
+      = t('check_review_text') 
+      = link_to t('log_in'), new_user_session_path, class: 'general-title-margin'

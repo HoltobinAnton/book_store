@@ -1,20 +1,16 @@
 class CreateReview < Rectify::Command
-  VALID_STR = 'Thanks for Review. It will be published as soon
-               as Admin will approve it'.freeze
-  INVALID_STR = 'An error has occurred'.freeze
-
-  def initialize(options)
-    @user = options[:user]
-    @params = options[:params]
+  def initialize(user, params)
+    @user = user
+    @params = params
   end
 
   def call
     if review_form.invalid?
-      broadcast :invalid, INVALID_STR
+      broadcast :invalid
     else
       transaction do
         create_review
-        broadcast :valid, VALID_STR
+        broadcast :valid
       end
     end
   end
