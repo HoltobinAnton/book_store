@@ -1,0 +1,4 @@
+= link_to cart_path, id: "cart_count", class: "a shop-link pull-right hidden-xs" do
+  %span.shop-icon
+    %span.shop-quantity
+      = current_order.order_items.size

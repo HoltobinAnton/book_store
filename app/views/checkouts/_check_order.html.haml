@@ -1,0 +1,27 @@
+%table.general-summary-table
+  %tr
+    %td
+      %p.in-gold-500.font-18= t('order_summary')
+    %td
+      %p.font-16
+  %tr
+    %td
+      %p.font-16= t('subtotal')
+    %td
+      %p.font-16= "€#{order.sub_total}"
+  - unless order.delivery.nil?
+    %tr
+      %td
+        %p.font-16= t('delivery')
+      %td
+        %p.font-16= "€#{order.delivery.price}"
+  %tr
+    %td
+      %p.font-16= t('coupon')
+    %td
+      %p.font-16= "€#{order.discount}"
+  %tr
+    %td
+      %p.font-16= t('order_total')
+    %td
+      %p.font-16= "€#{order.order_total}"

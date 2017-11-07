@@ -1,0 +1,9 @@
+%p.in-gold-500.font-18.mb-25= t('remove_account')
+.general-settings-btn
+  = button_to t("cancel_my_account"), registration_path(user), data: { confirm: "Are you sure?" }, class: "btn disabled mb-20", id: "btn_remove", method: :delete
+.form-group.checkbox.general-settings-checkbox
+  %label.checkbox-label
+    %input.checkbox-input.active_button{type: "checkbox", hidden: "true"}
+    %span.checkbox-icon
+      %i.fa.fa-check
+    %span.checkbox-text.active_button= t('check_remove')

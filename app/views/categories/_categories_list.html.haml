@@ -1,0 +1,10 @@
+%ul.list-inline.pt-10.mb-25.mr-240.list-category
+  %li.mr-35
+    = link_to categories_path, class: "filter-link" do
+      = t('all')
+      %span.badge.general-badge= Book.all.count
+  - categories.each do |category|
+    %li.mr-35
+      = link_to category, class: "filter-link" do
+        = t("#{category.title}")
+        %span.badge.general-badge= category.class.books_from_category(category.id).count

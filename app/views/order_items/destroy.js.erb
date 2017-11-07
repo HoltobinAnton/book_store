@@ -1,0 +1,5 @@
+$('#order_summary').html("<%= j render :partial => 'carts/order_summary', :locals => { order: current_order} %>");
+
+$('#cart_count').html("<%= j render 'carts/text' %>");
+$('#order_item_id_<%= @order_item.id%>').hide();
+

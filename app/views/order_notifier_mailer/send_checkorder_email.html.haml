@@ -1,0 +1,19 @@
+%h2 Thank You for your Order,the cost of the order is 
+Total price:
+= @order.order_total
+%h3 You bought it
+- @order.order_items.each do |order_item| 
+  %ul
+    %li
+      Name:
+      = order_item.book.title
+    %li
+      Quantity:
+      = order_item.quantity
+    %li
+      Price:
+      = order_item.total_price
+
+%h2 To confirm your order click the URL below!
+
+= confirm_email_checkout_url(@order.confirmation_token)

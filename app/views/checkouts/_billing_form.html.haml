@@ -1,0 +1,22 @@
+= fields_for :addresses, check_address_first do |address_field|  
+  .form-group
+    %label.control-label.input-label{for: "firstName"}= t('first_name')
+    = address_field.text_field :first_name, class: 'firstName form-control', name: 'fname_bil', type: 'text', placeholder: t('first_name')
+  .form-group
+    %label.control-label.input-label{for: "lastName"}= t('last_name')
+    = address_field.text_field :last_name, class: 'lastName form-control', name: 'lname_bil', type: 'text', placeholder: t('last_name')
+  .form-group
+    %label.control-label.input-label{for: "address"}= t('address')
+    = address_field.text_field :address, class: 'address form-control', name: 'address_bil', type: 'text', placeholder: t('address')
+  .form-group
+    %label.control-label.input-label{for: "city"}= t('city')
+    = address_field.text_field :city, class: 'city form-control', name: 'city_bil', type: 'text', placeholder: t('city')
+  .form-group
+    %label.control-label.input-label{for: "zip"} Zip
+    = address_field.text_field :zip, class: 'zip form-control', name: 'zip_bil', type: 'text', placeholder: 'Zip'
+  .form-group
+    %label.control-label.input-label{for: "сountry"}= t('country')
+    = address_field.select(:country_id, countries_array, {}, class: 'form-control', placeholder: t("select_country"),name: 'country_bil')
+  .form-group
+    %label.control-label.input-label{for: "phone"}= t('phone')
+    = address_field.text_field :phone, class: 'phone form-control', name: 'phone_bil', type: 'text', placeholder: t('phone_example')

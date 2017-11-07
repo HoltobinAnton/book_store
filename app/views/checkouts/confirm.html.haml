@@ -1,0 +1,10 @@
+%main.container.general-main-wrap
+  = render partial: 'checkout_steps'
+
+  = render partial: 'confirm_edit', locals: { user: current_user, order: @order }
+  = render partial: 'confirm_order_items', locals: { order: @order }
+  
+  .text-center.general-text-right
+    = render partial: 'check_order', locals: { order: @order }
+  .text-center
+    = link_to t('place_order'), wizard_path, method: :put, class: "btn btn-default mb-20"

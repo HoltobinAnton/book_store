@@ -1,0 +1,8 @@
+- if @order_items.empty?
+  .empty
+    %h3.text-center
+      = t('empty_cart')
+      = link_to root_path, class: 'general-back-link' do
+        = t('back')
+- else
+  = render 'carts/shopping_cart'

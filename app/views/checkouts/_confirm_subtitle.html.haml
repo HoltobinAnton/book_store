@@ -1,0 +1,13 @@
+.col-sm-3
+  %h3.general-subtitle= t"#{value.to_s}_address"
+  %p.general-address
+    = full_name(address)
+    = link_to t('edit'), wizard_path(:address), class: "general-edit"
+    %br
+    = get_address(address)
+    %br
+    = get_city_zip(address)
+    %br
+    = address.country.name
+    %br
+    = get_phone(address)

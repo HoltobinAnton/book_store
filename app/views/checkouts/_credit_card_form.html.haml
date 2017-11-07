@@ -1,0 +1,19 @@
+.max-600.mb-80
+  .col-sm-4
+    %label.control-label.input-label{for: "cardNumber"}= t('card_number')
+    = field.text_field :card_number, id: "cardNumber", class: "form-control", name: "card_number", placeholder: t('card_pl')
+    %span.help-block= t('valid_card')
+  .row
+    .col-sm-6
+      .form-group
+        %label.control-label.input-label{for: "cardName"}= t('name_on_card')
+        = field.text_field :card_name, id: "cardName", class: "form-control", name: "card_name", placeholder: t('card_name_pl')
+    .col-sm-3
+      .form-group
+        %label.control-label.input-label{for: "MM_YY"}=t ('m_y')
+        = field.text_field :mount, id: "MM_YY", class: "form-control", name: "exp-date", placeholder: t('m_e_pl')
+    .col-sm-3
+      .form-group.relative
+        %label.control-label.input-label{for: "firstName"} CVV
+        = field.text_field :cvv, class: "form-control", name: "cvv", placeholder: t("cvv_pl")
+        %i.fa.fa-question-circle.general-form-help

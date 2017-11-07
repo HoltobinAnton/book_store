@@ -1,0 +1,10 @@
+%main.container.general-main-wrap
+  %h1.mt-0.mb-25= t('my_orders')
+  %p.lead.small.mb-10.visible-xs Sort by
+  = render partial: 'drop_down_orders', locals: { sort_title: @sort_title }
+  - if @user.orders.empty?
+    .container.margin-top
+      = link_to t('empty_orders'), root_path, class: 'text-center margin-top'
+  - else
+    = render partial: 'orders_list', locals: { orders: @orders }
+  
